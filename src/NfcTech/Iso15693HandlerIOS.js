@@ -49,6 +49,13 @@ class Iso15693HandlerIOS {
       ]),
     );
   }
+  writeMultipleBlocks({flags, blockNumber, dataBlocks}) {
+    return handleNativeException(
+      callNative('iso15693_writeMultipleBlocks', [
+        {flags, blockNumber, dataBlocks},
+      ]),
+    );
+  }
 
   lockBlock({flags, blockNumber}) {
     return handleNativeException(

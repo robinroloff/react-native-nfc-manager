@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43DEBAF62EE49EAF0033DFE8 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DEBAF52EE49EAF0033DFE8 /* Util.m */; };
+		43DEBAF72EE49EAF0033DFE8 /* NfcManager+IsoDep.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DEBAF32EE49EAF0033DFE8 /* NfcManager+IsoDep.m */; };
+		43DEBAF82EE49EAF0033DFE8 /* NfcManager+Iso15693.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DEBAF22EE49EAF0033DFE8 /* NfcManager+Iso15693.m */; };
+		43DEBAF92EE49EAF0033DFE8 /* NfcManager+Mifare.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DEBAF42EE49EAF0033DFE8 /* NfcManager+Mifare.m */; };
+		43DEBAFA2EE49EAF0033DFE8 /* NfcManager+Felica.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DEBAF12EE49EAF0033DFE8 /* NfcManager+Felica.m */; };
 		B3E7B58A1CC2AC0600A0062D /* NfcManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* NfcManager.m */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +29,11 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libNfcManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNfcManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		43DEBAF12EE49EAF0033DFE8 /* NfcManager+Felica.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NfcManager+Felica.m"; sourceTree = "<group>"; };
+		43DEBAF22EE49EAF0033DFE8 /* NfcManager+Iso15693.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NfcManager+Iso15693.m"; sourceTree = "<group>"; };
+		43DEBAF32EE49EAF0033DFE8 /* NfcManager+IsoDep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NfcManager+IsoDep.m"; sourceTree = "<group>"; };
+		43DEBAF42EE49EAF0033DFE8 /* NfcManager+Mifare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NfcManager+Mifare.m"; sourceTree = "<group>"; };
+		43DEBAF52EE49EAF0033DFE8 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* NfcManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NfcManager.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* NfcManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NfcManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +60,11 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				43DEBAF12EE49EAF0033DFE8 /* NfcManager+Felica.m */,
+				43DEBAF22EE49EAF0033DFE8 /* NfcManager+Iso15693.m */,
+				43DEBAF32EE49EAF0033DFE8 /* NfcManager+IsoDep.m */,
+				43DEBAF42EE49EAF0033DFE8 /* NfcManager+Mifare.m */,
+				43DEBAF52EE49EAF0033DFE8 /* Util.m */,
 				B3E7B5881CC2AC0600A0062D /* NfcManager.h */,
 				B3E7B5891CC2AC0600A0062D /* NfcManager.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -95,6 +110,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -112,6 +128,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43DEBAF62EE49EAF0033DFE8 /* Util.m in Sources */,
+				43DEBAF72EE49EAF0033DFE8 /* NfcManager+IsoDep.m in Sources */,
+				43DEBAF82EE49EAF0033DFE8 /* NfcManager+Iso15693.m in Sources */,
+				43DEBAF92EE49EAF0033DFE8 /* NfcManager+Mifare.m in Sources */,
+				43DEBAFA2EE49EAF0033DFE8 /* NfcManager+Felica.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* NfcManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

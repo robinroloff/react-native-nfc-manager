@@ -148,6 +148,64 @@ RCT_EXPORT_METHOD(iso15693_writeSingleBlock:(NSDictionary *)options callback:(no
         callback(@[@"Not support in this device", [NSNull null]]);
     }
 }
+RCT_EXPORT_METHOD(iso15693_writeMultipleBlocks:(NSDictionary *)options
+                  callback:(nonnull RCTResponseSenderBlock)callback)
+{
+    if (@available(iOS 14.0, *)) {
+        if (![self tagSession] || ![self tagSession].connectedTag) {
+            callback(@[@"Not connected", [NSNull null]]);
+            return;
+        }
+
+        id<NFCISO15693Tag> tag = [[self tagSession].connectedTag asNFCISO15693Tag];
+        if (!tag) {
+            callback(@[@"incorrect tag type", [NSNull null]]);
+            return;
+        }
+
+        RequestFlag flags = [[options objectForKey:@"flags"] unsignedIntValue];
+
+        uint8_t startBlockNumber = [[options objectForKey:@"blockNumber"] unsignedIntValue];
+
+        NSArray *rawBlocks = [options objectForKey:@"dataBlocks"];
+        if (![rawBlocks isKindOfClass:[NSArray class]] || rawBlocks.count == 0) {
+            callback(@[@"invalid dataBlocks", [NSNull null]]);
+            return;
+        }
+
+        NSMutableArray<NSData *> *dataBlocks = [NSMutableArray arrayWithCapacity:rawBlocks.count];
+        for (id block in rawBlocks) {
+            if (![block isKindOfClass:[NSArray class]]) {
+                callback(@[@"invalid block element", [NSNull null]]);
+                return;
+            }
+
+            NSData *dataBlock = arrayToData([block mutableCopy]);
+            if (!dataBlock || dataBlock.length == 0) {
+                callback(@[@"empty block data", [NSNull null]]);
+                return;
+            }
+
+            [dataBlocks addObject:dataBlock];
+        }
+
+        NSRange blockRange = NSMakeRange(startBlockNumber, dataBlocks.count);
+
+        [tag writeMultipleBlocksWithRequestFlags:flags
+                                      blockRange:blockRange
+                                      dataBlocks:dataBlocks
+                               completionHandler:^(NSError *error) {
+            if (error) {
+                callback(@[getErrorMessage(error), [NSNull null]]);
+                return;
+            }
+
+            callback(@[]);
+        }];
+    } else {
+        callback(@[@"Not support in this device", [NSNull null]]);
+    }
+
 
 RCT_EXPORT_METHOD(iso15693_lockBlock:(NSDictionary *)options callback:(nonnull RCTResponseSenderBlock)callback)
 {
